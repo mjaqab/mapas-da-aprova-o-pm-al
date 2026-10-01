@@ -1,0 +1,20 @@
+# Product source files and temporary work kept outside the sales-page repository
+.pnpm-store/
+output/
+tmp/
+
+# Sales page build and local tooling artifacts
+pagina-de-vendas/node_modules/
+pagina-de-vendas/dist/
+pagina-de-vendas/.vite/
+pagina-de-vendas/lighthouse-report.json
+pagina-de-vendas/*.log
+
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
