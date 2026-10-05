@@ -11,6 +11,7 @@ import { comercial } from './comercial.js';
 const painIcons = [Layers3, BookOpen, AlertTriangle, Smartphone, FileQuestion, Target];
 const mechanismIcons = [SearchCheck, BookOpen, AlertTriangle, ListChecks];
 const audienceIcons = [MonitorSmartphone, Clock3, Layers3, RefreshCcw, ListChecks];
+const mainMockup = '/assets/mockups/mapas-pmal-265-mapas.webp';
 
 function CTA({ label = 'QUERO O PACOTE COMPLETO', href = '#oferta', external = false }) {
   return <a className="btn" href={href} rel={external ? 'noopener noreferrer' : undefined}>{label}<span aria-hidden="true">→</span></a>;
@@ -21,14 +22,14 @@ function SectionTitle({ children, lead }) {
 }
 
 function ProductComposition({ compact = false, minimal = false }) {
-  return <div className={`product-composition mockup-placeholder${compact ? ' product-composition--compact' : ''}${minimal ? ' product-composition--minimal' : ''}`} aria-hidden="true">
-    <span className="mockup-placeholder__screen" /><span className="mockup-placeholder__tablet" /><span className="mockup-placeholder__phone" />
+  return <div className={`product-composition master-mockup${compact ? ' product-composition--compact' : ''}${minimal ? ' product-composition--minimal' : ''}`} aria-hidden="true">
+    <img className="master-mockup-image" src={mainMockup} alt="" loading="lazy" />
   </div>;
 }
 
 function DeviceShowcase({ compact = false }) {
-  return <div className={`device-showcase mockup-placeholder${compact ? ' device-showcase--compact' : ''}`} aria-hidden="true">
-    <span className="mockup-placeholder__screen" /><span className="mockup-placeholder__tablet" /><span className="mockup-placeholder__phone" />
+  return <div className={`device-showcase master-mockup${compact ? ' device-showcase--compact' : ''}`}>
+    <img className="master-mockup-image" src={mainMockup} alt="Mockup do material Mapas PM-AL Soldado 2026 com 265 mapas visuais, 28 módulos e quatro bônus" fetchPriority="high" />
   </div>;
 }
 
