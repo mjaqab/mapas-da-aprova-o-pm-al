@@ -125,7 +125,7 @@ function BonusMockup({ bonus }) {
 
 export default function App() {
   return <>
-    <div className="urgency-bar"><Zap size={21} aria-hidden="true"/><strong>MAIS DE 220 MAPAS • LEGISLAÇÃO VIGENTE NA DATA DO EDITAL (ITEM 18.32)</strong></div>
+    <div className="urgency-bar"><Zap size={21} aria-hidden="true"/><strong>OFERTA ESPECIAL DISPONÍVEL POR POUCO TEMPO</strong></div>
     <main>
       <section className="hero"><div className="content content--900 hero-flow">
         <p className="hero-pill"><span aria-hidden="true" />{content.hero.badge}</p>
@@ -159,7 +159,7 @@ export default function App() {
 
       <section className="section section--tint gallery" id="previas"><div className="content content--1180 section-flow">
         <SectionTitle lead="Arraste para ver mapas de diferentes leis.">Veja páginas reais antes de decidir.</SectionTitle>
-        <ScrollRail label="Espaços reservados para páginas reais do material" className="gallery-rail" auto interval={2500}>{content.gallery.map(([src])=><figure className="gallery-card gallery-card--placeholder" key={src} aria-hidden="true"><span /></figure>)}</ScrollRail>
+        <ScrollRail label="Páginas reais do material" className="gallery-rail" auto interval={2500}>{content.gallery.map(([src, alt])=><figure className="gallery-card" key={src}><img src={src} alt={alt} loading="lazy" /></figure>)}</ScrollRail>
       </div></section>
 
       <section className="section mechanism"><div className="content content--1120 section-flow">
@@ -187,11 +187,11 @@ export default function App() {
 
       <section className="section section--tint receive"><div className="content content--1000 section-flow">
         <div className="receive-media"><ProductComposition compact /></div>
-        <article className="receive-card"><p className="access-badge">MAIS DE 220 MAPAS • TODO O EDITAL DE SOLDADO + 3 BÔNUS</p><h3>Mapas da Aprovação: PM-AL Soldado</h3><p className="product-descriptor">Mais de 220 mapas ilustrados. Só a Legislação tem 141 mapas e 842 cards.</p><h4>Lista dos módulos de Legislação</h4><ul className="module-list">{content.legislationModules.map(item=><li key={item}><Check size={18}/><span>{item}</span></li>)}</ul><div className="also-included"><h4>Também incluído</h4><ul className="additional-subjects">{content.additionalSubjects.map(item=><li key={item}><Check size={18}/><span>{item}</span></li>)}</ul><p className="same-format">Todos no mesmo formato de mapas ilustrados.</p><h4>Formato</h4><p>Feito para ler no celular, e em A4 para imprimir.</p></div></article>
+        <article className="receive-card"><p className="access-badge">MAIS DE 260 MAPAS • TODO O EDITAL DE SOLDADO + 4 BÔNUS</p><h3>Mapas da Aprovação: PM-AL Soldado</h3><p className="product-descriptor">Mais de 260 mapas ilustrados. Só a Legislação tem 141 mapas e 842 cards.</p><h4>Lista dos módulos de Legislação</h4><ul className="module-list">{content.legislationModules.map(item=><li key={item}><Check size={18}/><span>{item}</span></li>)}</ul><div className="also-included"><h4>Também incluído</h4><ul className="additional-subjects">{content.additionalSubjects.map(item=><li key={item}><Check size={18}/><span>{item}</span></li>)}</ul><p className="same-format">Todos no mesmo formato de mapas ilustrados.</p><h4>Formato</h4><p>Feito para ler no celular, e em A4 para imprimir.</p></div></article>
       </div></section>
 
       <section className="section bonuses"><div className="content content--1040 section-flow">
-        <header className="bonus-intro"><p>APOIOS PARA A SUA REVISÃO</p><h2>TRÊS BÔNUS INCLUÍDOS</h2><span><Gift size={17}/>{content.bonuses.length} BÔNUS</span></header>
+        <header className="bonus-intro"><p>APOIOS PARA A SUA REVISÃO</p><h2>QUATRO BÔNUS INCLUÍDOS</h2><span><Gift size={17}/>{content.bonuses.length} BÔNUS</span></header>
         <div className="bonus-grid">{content.bonuses.map(bonus=><article className="bonus-card" key={bonus.title}>
           <div className="bonus-card-top"><p className="bonus-num">{bonus.number}</p><BonusMockup bonus={bonus}/></div>
           <div className="bonus-card-body"><h3>{bonus.title}</h3><p>{bonus.text}</p><div className="bonus-gain"><Check size={18}/><span>{bonus.gain}</span></div><div className="bonus-price"><strong>INCLUÍDO</strong></div></div>

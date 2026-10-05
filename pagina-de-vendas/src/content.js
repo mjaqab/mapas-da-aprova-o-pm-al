@@ -3,14 +3,14 @@ export const content = {
     badge: 'MAPAS DA APROVAÇÃO • PM-AL SOLDADO 2026',
     titleBefore: 'Todo o edital da ',
     titleEmphasis: 'PM-AL Soldado',
-    titleAfter: ' em mais de 220 mapas ilustrados: só o que cai, na lei que vale para a prova.',
+    titleAfter: ' em mais de 260 mapas ilustrados: só o que cai, na lei que vale para a prova.',
     subtitle: 'Só a Legislação tem 141 mapas e 842 cards, cada um com o artigo da lei. Em todo mapa, um item Certo/Errado do jeito que o Cebraspe cobra. O Regulamento Disciplinar da PM-AL sozinho tem 29 mapas.',
     bullets: [
       'Revise lei por lei no celular, em poucos minutos, sem abrir apostila.',
       'Cada card traz o artigo: você confere na lei em segundos.',
       'Treine o olhar para a troca de palavra que transforma o Certo em Errado.'
     ],
-    amplitude: 'As 18 leis do edital + Português, Matemática, Informática, Alagoas e todas as matérias jurídicas de Soldado + 3 bônus.'
+    amplitude: 'As 18 leis do edital + Português, Matemática, Informática, Alagoas e todas as matérias jurídicas de Soldado + 4 bônus.'
   },
   pain: {
     title: 'Na prova de Soldado, a Legislação pesa.',
@@ -33,14 +33,14 @@ export const content = {
     ['Uma página por tema, sem sequência', 'Cada lei dividida em unidades, com cards numerados em ordem']
   ],
   gallery: [
-    ['/assets/paginas/mapa-portugues.webp', 'Página real do material'],
-    ['/assets/paginas/mapa-matematica.webp', 'Página real do material'],
-    ['/assets/paginas/mapa-informatica.webp', 'Página real do material'],
-    ['/assets/paginas/mapa-alagoas.webp', 'Página real do material'],
-    ['/assets/paginas/mapa-administrativo.webp', 'Página real do material'],
-    ['/assets/paginas/mapa-penal-militar.webp', 'Página real do material'],
-    ['/assets/paginas/mapa-direitos-humanos.webp', 'Página real do material'],
-    ['/assets/paginas/mapa-estatuto.webp', 'Página real do material']
+    ['/assets/paginas/mapa-estatuto-v2.webp', 'Mapa real do Estatuto dos Policiais Militares de Alagoas'],
+    ['/assets/paginas/mapa-rdpm.webp', 'Mapa real do Regulamento Disciplinar da PM-AL'],
+    ['/assets/paginas/mapa-matematica-v2.webp', 'Mapa real de Matemática'],
+    ['/assets/paginas/mapa-informatica-v2.webp', 'Mapa real de Noções de Informática'],
+    ['/assets/paginas/mapa-alagoas-v2.webp', 'Mapa real de Conhecimentos do Estado de Alagoas'],
+    ['/assets/paginas/mapa-administrativo-v2.webp', 'Mapa real de Direito Administrativo'],
+    ['/assets/paginas/mapa-penal-militar-v2.webp', 'Mapa real de Direito Penal Militar'],
+    ['/assets/paginas/mapa-direitos-humanos-v2.webp', 'Mapa real de Noções de Direitos Humanos']
   ],
   mechanism: [
     ['Centro da lei', 'No meio, o nome da lei, a unidade e os artigos que ela cobre.'],
@@ -85,26 +85,28 @@ export const content = {
   bonuses: [
     { number: 'BÔNUS 01', title: 'Roteiro de Revisão 7, 14 e 30', text: 'Um plano que distribui os módulos e marca as novas passagens após 7, 14 e 30 dias.', gain: 'Abra o roteiro e saiba qual módulo revisar em seguida.', image: '/assets/bonus/bonus-roteiro-capa.webp', page: '/assets/bonus/bonus-roteiro-pagina.webp' },
     { number: 'BÔNUS 02', title: 'Pegadinhas Cebraspe', text: 'As trocas de palavras que mais derrubam candidatos: prazos, competências, exceções e termos absolutos.', gain: 'Identifique a palavra que transforma o Certo em Errado.', image: '/assets/bonus/bonus-pegadinhas-capa.webp', page: '/assets/bonus/bonus-pegadinhas-pagina.webp' },
-    { number: 'BÔNUS 03', title: 'Caderno de Véspera', text: 'O edital condensado para as últimas 72 horas antes da prova.', gain: 'Retome os pontos-chave sem começar matéria nova na reta final.', image: '/assets/bonus/bonus-vespera-capa.webp', page: '/assets/bonus/bonus-vespera-pagina.webp' }
+    { number: 'BÔNUS 03', title: 'Caderno de Véspera', text: 'O edital condensado para as últimas 72 horas antes da prova.', gain: 'Retome os pontos-chave sem começar matéria nova na reta final.', image: '/assets/bonus/bonus-vespera-capa.webp', page: '/assets/bonus/bonus-vespera-pagina.webp' },
+    { number: 'BÔNUS 04', title: 'Edital Verticalizado Mapeado', text: 'Cada item do edital de Soldado em uma linha, com o módulo e o mapa exatos onde ele está explicado.', gain: 'Marque o que já estudou, revisou e treinou em questões.', image: '/assets/bonus/bonus-edital-verticalizado-capa.webp', page: '/assets/bonus/bonus-edital-verticalizado-pagina.webp' }
   ],
   releaseSummary: [
     '17 módulos de Legislação (141 mapas, 842 cards)',
     'Todas as demais matérias de Soldado no mesmo formato',
     'Roteiro de Revisão 7, 14 e 30',
     'Pegadinhas Cebraspe',
-    'Caderno de Véspera'
+    'Caderno de Véspera',
+    'Edital Verticalizado Mapeado'
   ],
   included: [
-    'Mais de 220 mapas ilustrados de todo o edital de Soldado',
+    'Mais de 260 mapas ilustrados de todo o edital de Soldado',
     '842 cards, cada um com o artigo da lei',
     'Item Certo/Errado comentado em todos os mapas',
     'Legislação vigente na data do edital (item 18.32)',
     'Português, Matemática, Informática, Alagoas e todas as matérias jurídicas',
     'Leitura no celular e páginas A4 para imprimir',
-    '3 bônus: Roteiro 7-14-30, Pegadinhas Cebraspe e Caderno de Véspera'
+    '4 bônus: Roteiro 7-14-30, Pegadinhas Cebraspe, Caderno de Véspera e Edital Verticalizado Mapeado'
   ],
   faqs: [
-    ['O que chega no meu acesso?', 'Mais de 220 mapas: os 17 módulos de Legislação (141 mapas), os módulos de todas as demais matérias de Soldado e os três bônus.'],
+    ['O que chega no meu acesso?', 'Mais de 260 mapas: os 17 módulos de Legislação (141 mapas), os módulos de todas as demais matérias de Soldado e os quatro bônus.'],
     ['É curso ou material de revisão?', 'É material de revisão. Ajuda a fixar e conferir a lei; não substitui aulas nem a resolução de questões.'],
     ['Por que a data da lei importa?', 'Pelo item 18.32 do edital, vale a legislação vigente na data da primeira publicação (20/03/2026). Alterações posteriores não são cobradas nesta prova, e os mapas seguem esse recorte.'],
     ['Cada mapa mostra o artigo da lei?', 'Sim. Todos os 842 cards trazem o artigo correspondente.'],
