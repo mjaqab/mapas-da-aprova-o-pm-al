@@ -21,14 +21,14 @@ function SectionTitle({ children, lead }) {
 }
 
 function ProductComposition({ compact = false, minimal = false }) {
-  return <div className={`product-composition master-mockup${compact ? ' product-composition--compact' : ''}${minimal ? ' product-composition--minimal' : ''}`} aria-label="Mockup do produto com mapas em três telas, material impresso e três bônus">
-    <img className="master-mockup-image" src="/assets/mockups/mapas-pmal-tres-telas.webp" alt="Mockup dos 156 Mapas PM-AL em computador, tablet, celular, material impresso e três bônus" loading="lazy" />
+  return <div className={`product-composition mockup-placeholder${compact ? ' product-composition--compact' : ''}${minimal ? ' product-composition--minimal' : ''}`} aria-hidden="true">
+    <span className="mockup-placeholder__screen" /><span className="mockup-placeholder__tablet" /><span className="mockup-placeholder__phone" />
   </div>;
 }
 
 function DeviceShowcase({ compact = false }) {
-  return <div className={`device-showcase master-mockup${compact ? ' device-showcase--compact' : ''}`} aria-label="Mockup do produto com mapas em três telas, material impresso e três bônus">
-    <img className="master-mockup-image" src="/assets/mockups/mapas-pmal-tres-telas.webp" alt="Mockup dos 156 Mapas PM-AL em computador, tablet, celular, material impresso e três bônus" fetchPriority="high" />
+  return <div className={`device-showcase mockup-placeholder${compact ? ' device-showcase--compact' : ''}`} aria-hidden="true">
+    <span className="mockup-placeholder__screen" /><span className="mockup-placeholder__tablet" /><span className="mockup-placeholder__phone" />
   </div>;
 }
 
@@ -124,7 +124,7 @@ function BonusMockup({ bonus }) {
 
 export default function App() {
   return <>
-    <div className="urgency-bar"><Zap size={21} aria-hidden="true"/><strong>OFERTA ESPECIAL DISPONÍVEL POR POUCO TEMPO</strong></div>
+    <div className="urgency-bar"><Zap size={21} aria-hidden="true"/><strong>LEGISLAÇÃO ATUALIZADA ATÉ A DATA DO EDITAL (ITEM 18.32)</strong></div>
     <main>
       <section className="hero"><div className="content content--900 hero-flow">
         <p className="hero-pill"><span aria-hidden="true" />{content.hero.badge}</p>
@@ -143,22 +143,34 @@ export default function App() {
         <p className="bridge">{content.pain.bridge}</p>
       </div></section>
 
+      <section className="section section--tint differential"><div className="content content--1040 section-flow">
+        <SectionTitle lead="Veja o que muda quando o material é feito a partir do edital, e não de um resumo genérico.">Não é mais um resumo. É a lei do edital, mapa por mapa.</SectionTitle>
+        <div className="comparison" role="table" aria-label="Comparação entre resumo genérico e Mapas da Aprovação">
+          <div className="comparison-head comparison-head--generic" role="columnheader">Resumo genérico</div>
+          <div className="comparison-head comparison-head--maps" role="columnheader">Mapas da Aprovação</div>
+          {content.comparison.map(([generic,maps]) => <div className="comparison-row" role="row" key={generic}>
+            <div className="comparison-cell comparison-cell--generic" role="cell"><AlertTriangle size={19}/><span>{generic}</span></div>
+            <div className="comparison-cell comparison-cell--maps" role="cell"><Check size={20}/><span>{maps}</span></div>
+          </div>)}
+        </div>
+        <article className="date-cut"><p>RECORTE 18.32</p><h3>Por que a data importa?</h3><span>O edital diz, no item 18.32, que vale a legislação vigente na data da primeira publicação: 20/03/2026. Leis que saíram depois disso não caem nesta prova. A Lei Maria da Penha, por exemplo, foi alterada várias vezes depois dessa data. Nossos mapas seguem o texto que vale para a sua prova, nem mais nem menos.</span></article>
+      </div></section>
+
       <section className="section section--tint gallery" id="previas"><div className="content content--1180 section-flow">
-        <SectionTitle lead="Confira como Português, Matemática, Informática, Alagoas e disciplinas jurídicas aparecem dentro do material final.">Veja páginas reais antes de decidir.</SectionTitle>
-        <ScrollRail label="Páginas reais do material" className="gallery-rail" auto interval={2500}>{content.gallery.map(([src,alt])=><figure className="gallery-card" key={src}><img src={src} alt={alt} loading="lazy"/></figure>)}</ScrollRail>
-        <p className="gallery-caption">Páginas reais da coleção. Arraste para conferir diferentes módulos.</p>
+        <SectionTitle lead="Arraste para ver mapas de diferentes leis.">Veja páginas reais antes de decidir.</SectionTitle>
+        <ScrollRail label="Espaços reservados para páginas reais do material" className="gallery-rail" auto interval={2500}>{content.gallery.map(([src])=><figure className="gallery-card gallery-card--placeholder" key={src} aria-hidden="true"><span /></figure>)}</ScrollRail>
       </div></section>
 
       <section className="section mechanism"><div className="content content--1120 section-flow">
-        <SectionTitle>Um mapa para cada bloco que precisa voltar à memória.</SectionTitle>
+        <SectionTitle>Um mapa, uma parte da lei. Tudo conectado.</SectionTitle>
         <figure className="mechanism-proof"><img src="/assets/paginas/mapa-portugues.webp" alt="Página real de Língua Portuguesa com conceitos visuais" loading="lazy" /></figure>
         <div className="mechanism-grid">{content.mechanism.map(([title,text],index)=>{const Icon=mechanismIcons[index];return <article key={title}><span className="mechanism-icon"><Icon size={25}/></span><h3>{title}</h3><p>{text}</p></article>})}</div>
-        <p className="mechanism-close">Sem montar outro resumo: abra o módulo, revise a página e volte às questões sabendo o que conferir.</p><CTA />
+        <p className="mechanism-close">Abra o módulo, revise o mapa e volte às questões sabendo exatamente o que conferir.</p><CTA />
       </div></section>
 
       <section className="section mid-pitch"><div className="content content--1040 mid-pitch-grid">
         <div className="mid-pitch-media"><ProductComposition minimal /></div>
-        <div className="mid-pitch-copy"><h2>Quantos assuntos você já estudou, mas ainda precisa procurar tudo de novo para revisar?</h2><p>Com os mapas, cada bloco do edital tem um módulo definido. Você abre a página, retoma os pontos-chave e volta às questões sabendo o que observar.</p><CTA /></div>
+        <div className="mid-pitch-copy"><h2>Quantas vezes você já leu a mesma lei e, na questão, ficou em dúvida?</h2><p>Com os mapas, cada lei do edital tem o seu módulo. Você abre, revisa os cards e responde sabendo de qual artigo saiu a resposta.</p><CTA /></div>
       </div></section>
 
       <section className="section usage" id="usos"><div className="content content--1180 section-flow">
@@ -167,19 +179,18 @@ export default function App() {
       </div></section>
 
       <section className="section audiences"><div className="content content--1180 section-flow">
-        <header className="recognition-title"><p>PARA QUEM É</p><h2>Você vai se reconhecer se...</h2><span>Situações concretas mostram para quem esta revisão foi criada.</span></header>
+        <header className="recognition-title"><p>PARA QUEM É</p><h2>Você vai se reconhecer se...</h2></header>
         <div className="audience-grid">{content.audiences.map(([title,text],index)=>{const Icon=audienceIcons[index];return <article key={title}><span><Icon size={30}/></span><h3>{title}</h3><p>{text}</p></article>})}</div>
         <p className="audience-close">“Isso foi feito para a minha rotina.”</p>
       </div></section>
 
       <section className="section section--tint receive"><div className="content content--1000 section-flow">
-        <SectionTitle>Todo o conteúdo de Soldado organizado para a sua revisão.</SectionTitle>
         <div className="receive-media"><ProductComposition compact /></div>
-        <article className="receive-card"><p className="access-badge">156 MAPAS VISUAIS + {content.bonuses.length} BÔNUS</p><h3>156 Mapas da Aprovação: PM-AL Soldado</h3><p className="product-descriptor">18 leis e todas as matérias do edital, sem reler apostila</p><p>Uma coleção em 29 módulos para localizar, revisar e comparar os pontos previstos no edital, no celular ou em páginas A4 impressas.</p><ul>{content.benefits.map(item=><li key={item}><Check size={20}/><span>{item}</span></li>)}</ul></article>
+        <article className="receive-card"><p className="access-badge">17 MÓDULOS DE LEGISLAÇÃO + DEMAIS MATÉRIAS + 3 BÔNUS</p><h3>Mapas da Aprovação: PM-AL Soldado</h3><p className="product-descriptor">As 18 leis do edital em 141 mapas e 842 cards, sem reler apostila.</p><h4>Lista dos módulos de Legislação</h4><ul className="module-list">{content.legislationModules.map(item=><li key={item}><Check size={18}/><span>{item}</span></li>)}</ul><div className="also-included"><h4>Também incluído</h4><p>Português, Matemática, Informática, Conhecimentos de Alagoas e as matérias jurídicas de Soldado.</p><p><strong>Atualização gratuita:</strong> as demais matérias estão sendo refeitas neste novo formato e entram no seu acesso sem custo extra.</p><h4>Formato</h4><p>Feito para ler no celular, e em A4 para imprimir.</p></div></article>
       </div></section>
 
       <section className="section bonuses"><div className="content content--1040 section-flow">
-        <header className="bonus-intro"><p>APOIOS PARA A SUA REVISÃO</p><h2>TRÊS BÔNUS REAIS E INCLUÍDOS</h2><span><Gift size={17}/>{content.bonuses.length} BÔNUS</span></header>
+        <header className="bonus-intro"><p>APOIOS PARA A SUA REVISÃO</p><h2>TRÊS BÔNUS INCLUÍDOS</h2><span><Gift size={17}/>{content.bonuses.length} BÔNUS</span></header>
         <div className="bonus-grid">{content.bonuses.map(bonus=><article className="bonus-card" key={bonus.title}>
           <div className="bonus-card-top"><p className="bonus-num">{bonus.number}</p><BonusMockup bonus={bonus}/></div>
           <div className="bonus-card-body"><h3>{bonus.title}</h3><p>{bonus.text}</p><div className="bonus-gain"><Check size={18}/><span>{bonus.gain}</span></div><div className="bonus-price"><strong>INCLUÍDO</strong></div></div>
@@ -189,35 +200,33 @@ export default function App() {
       <section className="section offer" id="oferta"><div className="content content--720 section-flow">
         <SectionTitle>Tudo o que será liberado para você hoje</SectionTitle>
         <div className="value-stack" aria-label="Itens incluídos na oferta"><p>O QUE VOCÊ RECEBE</p><ul>
-          <li><span>156 mapas visuais em 29 módulos</span><strong>INCLUÍDO</strong></li>
-          {content.bonuses.map(bonus=><li key={bonus.title}><span>{bonus.title}</span><strong>INCLUÍDO</strong></li>)}
+          {content.releaseSummary.map(item=><li key={item}><span>{item}</span><strong>INCLUÍDO</strong></li>)}
         </ul></div>
         <article className="plan-card">
-          <p className="plan-badge">156 MAPAS + {content.bonuses.length} BÔNUS</p>
-          <p className="plan-kicker">PACOTE COMPLETO</p><h3>156 Mapas da Aprovação: PM-AL Soldado</h3>
+          <p className="plan-badge">PACOTE COMPLETO</p>
+          <h3>Mapas da Aprovação: PM-AL Soldado</h3>
           <div className="plan-mockup"><ProductComposition compact /></div>
           <ul>{content.included.map(item=><li key={item}><Check size={20}/><span>{item}</span></li>)}</ul>
           <div className="price"><small>Pagamento único</small><strong>{comercial.price}</strong>{comercial.installments && <span>{comercial.installments}</span>}</div>
-          <CTA label="QUERO ACESSAR OS 156 MAPAS" href={comercial.checkoutUrl} external />
+          <CTA label="QUERO ACESSAR OS MAPAS" href={comercial.checkoutUrl} external />
           <div className="payment-trust"><span><CreditCard size={18}/>Pagamento pela Kiwify</span><span><ShieldCheck size={18}/>Garantia de 7 dias</span><span><BadgeCheck size={18}/>Acesso após aprovação</span></div>
         </article>
-        <p className="offer-close">Pagamento único. Sem mensalidade informada.</p>
       </div></section>
 
       <section className="section purchase-safety"><div className="content content--1000 safety-layout">
         <article className="guarantee-card"><ShieldCheck size={54}/><h2>Você tem 7 dias para avaliar</h2><p>{comercial.guarantee}</p></article>
-        <div className="safety-cards"><article><CreditCard size={30}/><div><h3>Pagamento pela Kiwify</h3><p>O checkout informado para esta oferta é processado pela plataforma Kiwify.</p></div></article><article><FileCheck2 size={30}/><div><h3>Conteúdo alinhado ao edital</h3><p>Os 29 módulos foram conferidos contra as matérias indicadas para o cargo de Soldado.</p></div></article></div>
+        <div className="safety-cards"><article><CreditCard size={30}/><div><h3>Pagamento pela Kiwify</h3><p>O checkout informado para esta oferta é processado pela plataforma Kiwify.</p></div></article><article><FileCheck2 size={30}/><div><h3>Feito a partir do edital, item por item</h3><p>Cada módulo foi montado a partir do conteúdo programático de Soldado e conferido com o texto da lei vigente em 20/03/2026, como manda o item 18.32 do edital.</p></div></article></div>
       </div></section>
 
       <section className="section section--tint access-steps"><div className="content content--980 section-flow">
         <SectionTitle>Como funciona depois do pagamento</SectionTitle>
-        <div className="steps-grid"><article><span>1</span><CreditCard/><h3>Conclua o pagamento</h3><p>Use Pix ou cartão no checkout da Kiwify.</p></article><article><span>2</span><Mail/><h3>Receba o acesso</h3><p>{comercial.access}</p></article><article><span>3</span><MonitorSmartphone/><h3>Abra o primeiro módulo</h3><p>Consulte no celular, computador ou imprima as páginas A4.</p></article></div>
+        <div className="steps-grid"><article><span>1</span><CreditCard/><h3>Conclua o pagamento</h3><p>Use Pix ou cartão no checkout da Kiwify.</p></article><article><span>2</span><Mail/><h3>Receba o acesso</h3><p>Por e-mail e pela área de membros da Kiwify, assim que o pagamento for aprovado.</p></article><article><span>3</span><MonitorSmartphone/><h3>Abra o primeiro módulo</h3><p>No celular, no computador ou impresso em A4.</p></article></div>
         <CTA />
       </div></section>
 
       <section className="section faq"><div className="content content--780 section-flow"><SectionTitle>Perguntas frequentes</SectionTitle><div className="faq-list">{content.faqs.map(([question,answer])=><details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></div></section>
 
-      <section className="closing"><div className="content content--820 closing-inner"><p>PROVAS OBJETIVA E DISCURSIVA EM {comercial.examDate}</p><h2>Domine o edital da PM-AL Soldado e <em>conquiste sua vaga na carreira policial militar.</em></h2><CTA/><small>Material digital em PDF. Pagamento único de {comercial.price}.</small></div></section>
+      <section className="closing"><div className="content content--820 closing-inner"><p>PROVAS OBJETIVA E DISCURSIVA EM {comercial.examDate}</p><h2>Chegue na prova sabendo de qual artigo saiu cada resposta.</h2><CTA/><small>Material digital em PDF. Pagamento único de {comercial.price}.</small></div></section>
     </main>
     <footer className="footer"><div className="footer-inner"><p>Suporte: <a href={`mailto:${comercial.supportEmail}`}>{comercial.supportEmail}</a></p><p className="footer-legal">Material de estudo independente, sem vínculo com a PMAL, o Cebraspe ou o Governo de Alagoas. Resultados dependem da preparação e do desempenho individual.</p><p>{comercial.company}</p><p><a href={comercial.termsUrl}>Termos de uso</a> · <a href={comercial.privacyUrl}>Política de privacidade</a></p></div></footer>
   </>;
