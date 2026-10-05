@@ -124,7 +124,7 @@ function BonusMockup({ bonus }) {
 
 export default function App() {
   return <>
-    <div className="urgency-bar"><Zap size={21} aria-hidden="true"/><strong>LEGISLAÇÃO ATUALIZADA ATÉ A DATA DO EDITAL (ITEM 18.32)</strong></div>
+    <div className="urgency-bar"><Zap size={21} aria-hidden="true"/><strong>MAIS DE 220 MAPAS • LEGISLAÇÃO VIGENTE NA DATA DO EDITAL (ITEM 18.32)</strong></div>
     <main>
       <section className="hero"><div className="content content--900 hero-flow">
         <p className="hero-pill"><span aria-hidden="true" />{content.hero.badge}</p>
@@ -186,7 +186,7 @@ export default function App() {
 
       <section className="section section--tint receive"><div className="content content--1000 section-flow">
         <div className="receive-media"><ProductComposition compact /></div>
-        <article className="receive-card"><p className="access-badge">17 MÓDULOS DE LEGISLAÇÃO + DEMAIS MATÉRIAS + 3 BÔNUS</p><h3>Mapas da Aprovação: PM-AL Soldado</h3><p className="product-descriptor">As 18 leis do edital em 141 mapas e 842 cards, sem reler apostila.</p><h4>Lista dos módulos de Legislação</h4><ul className="module-list">{content.legislationModules.map(item=><li key={item}><Check size={18}/><span>{item}</span></li>)}</ul><div className="also-included"><h4>Também incluído</h4><p>Português, Matemática, Informática, Conhecimentos de Alagoas e as matérias jurídicas de Soldado.</p><p><strong>Atualização gratuita:</strong> as demais matérias estão sendo refeitas neste novo formato e entram no seu acesso sem custo extra.</p><h4>Formato</h4><p>Feito para ler no celular, e em A4 para imprimir.</p></div></article>
+        <article className="receive-card"><p className="access-badge">MAIS DE 220 MAPAS • TODO O EDITAL DE SOLDADO + 3 BÔNUS</p><h3>Mapas da Aprovação: PM-AL Soldado</h3><p className="product-descriptor">Mais de 220 mapas ilustrados. Só a Legislação tem 141 mapas e 842 cards.</p><h4>Lista dos módulos de Legislação</h4><ul className="module-list">{content.legislationModules.map(item=><li key={item}><Check size={18}/><span>{item}</span></li>)}</ul><div className="also-included"><h4>Também incluído</h4><ul className="additional-subjects">{content.additionalSubjects.map(item=><li key={item}><Check size={18}/><span>{item}</span></li>)}</ul><p className="same-format">Todos no mesmo formato de mapas ilustrados.</p><h4>Formato</h4><p>Feito para ler no celular, e em A4 para imprimir.</p></div></article>
       </div></section>
 
       <section className="section bonuses"><div className="content content--1040 section-flow">

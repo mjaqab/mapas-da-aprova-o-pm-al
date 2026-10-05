@@ -1,16 +1,16 @@
 export const content = {
   hero: {
     badge: 'MAPAS DA APROVAÇÃO • PM-AL SOLDADO 2026',
-    titleBefore: 'Toda a Legislação do edital da ',
+    titleBefore: 'Todo o edital da ',
     titleEmphasis: 'PM-AL Soldado',
-    titleAfter: ' em 141 mapas ilustrados: só o que cai, na lei que vale para a prova.',
-    subtitle: '842 cards explicados, cada um com o artigo da lei. Em todo mapa, um item Certo/Errado do jeito que o Cebraspe cobra. Só o Regulamento Disciplinar da PM-AL tem 29 mapas.',
+    titleAfter: ' em mais de 220 mapas ilustrados: só o que cai, na lei que vale para a prova.',
+    subtitle: 'Só a Legislação tem 141 mapas e 842 cards, cada um com o artigo da lei. Em todo mapa, um item Certo/Errado do jeito que o Cebraspe cobra. O Regulamento Disciplinar da PM-AL sozinho tem 29 mapas.',
     bullets: [
       'Revise lei por lei no celular, em poucos minutos, sem abrir apostila.',
       'Cada card traz o artigo: você confere na lei em segundos.',
       'Treine o olhar para a troca de palavra que transforma o Certo em Errado.'
     ],
-    amplitude: 'As 18 leis do edital em 17 módulos + as demais matérias de Soldado + 3 bônus.'
+    amplitude: 'As 18 leis do edital + Português, Matemática, Informática, Alagoas e todas as matérias jurídicas de Soldado + 3 bônus.'
   },
   pain: {
     title: 'Na prova de Soldado, a Legislação pesa.',
@@ -73,6 +73,15 @@ export const content = {
     '16. Juizados Especiais — 7 mapas',
     '17. Lei Orgânica Nacional da PM — 6 mapas'
   ],
+  additionalSubjects: [
+    'Língua Portuguesa',
+    'Matemática',
+    'Noções de Informática',
+    'Conhecimentos do Estado de Alagoas',
+    'Direito Constitucional e Direito Administrativo',
+    'Processo Penal, Direito Penal Militar e Processo Penal Militar',
+    'Direitos Humanos'
+  ],
   bonuses: [
     { number: 'BÔNUS 01', title: 'Roteiro de Revisão 7, 14 e 30', text: 'Um plano que distribui os módulos e marca as novas passagens após 7, 14 e 30 dias.', gain: 'Abra o roteiro e saiba qual módulo revisar em seguida.', image: '/assets/bonus/bonus-roteiro-capa.webp', page: '/assets/bonus/bonus-roteiro-pagina.webp' },
     { number: 'BÔNUS 02', title: 'Pegadinhas Cebraspe', text: 'As trocas de palavras que mais derrubam candidatos: prazos, competências, exceções e termos absolutos.', gain: 'Identifique a palavra que transforma o Certo em Errado.', image: '/assets/bonus/bonus-pegadinhas-capa.webp', page: '/assets/bonus/bonus-pegadinhas-pagina.webp' },
@@ -80,29 +89,27 @@ export const content = {
   ],
   releaseSummary: [
     '17 módulos de Legislação (141 mapas, 842 cards)',
-    'Demais matérias de Soldado',
-    'Atualizações gratuitas no novo formato',
+    'Todas as demais matérias de Soldado no mesmo formato',
     'Roteiro de Revisão 7, 14 e 30',
     'Pegadinhas Cebraspe',
     'Caderno de Véspera'
   ],
   included: [
-    '141 mapas ilustrados das 18 leis do edital',
+    'Mais de 220 mapas ilustrados de todo o edital de Soldado',
     '842 cards, cada um com o artigo da lei',
     'Item Certo/Errado comentado em todos os mapas',
     'Legislação vigente na data do edital (item 18.32)',
-    'Demais matérias de Soldado + atualizações gratuitas',
+    'Português, Matemática, Informática, Alagoas e todas as matérias jurídicas',
     'Leitura no celular e páginas A4 para imprimir',
     '3 bônus: Roteiro 7-14-30, Pegadinhas Cebraspe e Caderno de Véspera'
   ],
   faqs: [
-    ['O que chega no meu acesso?', 'Os 17 módulos de Legislação (141 mapas), os módulos das demais matérias de Soldado e os três bônus.'],
+    ['O que chega no meu acesso?', 'Mais de 220 mapas: os 17 módulos de Legislação (141 mapas), os módulos de todas as demais matérias de Soldado e os três bônus.'],
     ['É curso ou material de revisão?', 'É material de revisão. Ajuda a fixar e conferir a lei; não substitui aulas nem a resolução de questões.'],
     ['Por que a data da lei importa?', 'Pelo item 18.32 do edital, vale a legislação vigente na data da primeira publicação (20/03/2026). Alterações posteriores não são cobradas nesta prova, e os mapas seguem esse recorte.'],
     ['Cada mapa mostra o artigo da lei?', 'Sim. Todos os 842 cards trazem o artigo correspondente.'],
     ['Consigo estudar pelo celular?', 'Sim. Os mapas foram feitos para leitura no celular e também podem ser impressos em A4.'],
     ['Quais matérias estão incluídas?', 'As 18 leis da Legislação, em 17 módulos, e as demais matérias de Soldado: Português, Matemática, Informática, Conhecimentos de Alagoas e as disciplinas jurídicas.'],
-    ['As demais matérias também estão no novo formato?', 'Estão sendo refeitas no novo formato. Cada módulo novo entra no seu acesso sem custo extra.'],
     ['Como o material ajuda no Certo/Errado?', 'Todo mapa termina com um item errado, do jeito que a banca cobra, e a versão correta. O bônus Pegadinhas Cebraspe treina as trocas de palavras mais comuns.'],
     ['O material é físico?', 'Não. É digital (PDF), com páginas A4 que você pode imprimir.'],
     ['Existe garantia?', 'Sim, 7 dias a partir da compra, pela Kiwify.'],
