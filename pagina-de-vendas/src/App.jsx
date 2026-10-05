@@ -1,9 +1,9 @@
-import { Children, cloneElement, useEffect, useRef } from 'react';
+import { Children, cloneElement, useEffect, useRef, useState } from 'react';
 import {
   AlertTriangle, BadgeCheck, BookOpen, Check,
   ChevronLeft, ChevronRight, Clock3, CreditCard, FileCheck2, FileQuestion,
   Gift, Layers3, ListChecks, Mail, MonitorSmartphone, SearchCheck,
-  RefreshCcw, ShieldCheck, Smartphone, Target, Zap
+  RefreshCcw, ShieldCheck, Smartphone, Target
 } from 'lucide-react';
 import { content } from './content.js';
 import { comercial } from './comercial.js';
@@ -123,9 +123,42 @@ function BonusMockup({ bonus }) {
   </div>;
 }
 
+function getDaysUntilExam() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Sao_Paulo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(new Date());
+  const dateParts = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
+  const today = Date.UTC(Number(dateParts.year), Number(dateParts.month) - 1, Number(dateParts.day));
+  const exam = Date.UTC(2027, 0, 17);
+  return Math.ceil((exam - today) / 86400000);
+}
+
+function UrgencyBar() {
+  const [days, setDays] = useState(getDaysUntilExam);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setDays(getDaysUntilExam()), 60000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  if (days <= 0) {
+    return <a className="urgency-bar" href="#oferta">SOLDADO PM-AL 2026 • SUA FARDA COMEÇA AQUI</a>;
+  }
+
+  const fullLead = days === 1 ? 'FALTA' : 'FALTAM';
+  const fullUnit = days === 1 ? 'DIA' : 'DIAS';
+  return <a className="urgency-bar" href="#oferta" aria-label={`${fullLead} ${days} ${fullUnit} PARA A PROVA • SUA FARDA COMEÇA AQUI`}>
+    <span className="urgency-copy urgency-copy--full">{fullLead} <strong>{days}</strong> {fullUnit} PARA A PROVA • SUA FARDA COMEÇA AQUI</span>
+    <span className="urgency-copy urgency-copy--short">{fullLead} <strong>{days}</strong> {fullUnit} • SUA FARDA COMEÇA AQUI</span>
+  </a>;
+}
+
 export default function App() {
   return <>
-    <div className="urgency-bar"><Zap size={21} aria-hidden="true"/><strong>OFERTA ESPECIAL DISPONÍVEL POR POUCO TEMPO</strong></div>
+    <UrgencyBar />
     <main>
       <section className="hero"><div className="content content--900 hero-flow">
         <p className="hero-pill"><span aria-hidden="true" />{content.hero.badge}</p>
@@ -164,7 +197,7 @@ export default function App() {
 
       <section className="section mechanism"><div className="content content--1120 section-flow">
         <SectionTitle>Um mapa, uma parte da lei. Tudo conectado.</SectionTitle>
-        <figure className="mechanism-proof"><img src="/assets/paginas/mapa-portugues.webp" alt="Página real de Língua Portuguesa com conceitos visuais" loading="lazy" /></figure>
+        <figure className="mechanism-proof"><img src="/assets/paginas/mapa-estatuto-v2.webp" alt="Mapa real do Estatuto dos Policiais Militares de Alagoas" loading="lazy" /></figure>
         <div className="mechanism-grid">{content.mechanism.map(([title,text],index)=>{const Icon=mechanismIcons[index];return <article key={title}><span className="mechanism-icon"><Icon size={25}/></span><h3>{title}</h3><p>{text}</p></article>})}</div>
         <p className="mechanism-close">Abra o módulo, revise o mapa e volte às questões sabendo exatamente o que conferir.</p><CTA />
       </div></section>
@@ -192,10 +225,10 @@ export default function App() {
 
       <section className="section bonuses"><div className="content content--1040 section-flow">
         <header className="bonus-intro"><p>APOIOS PARA A SUA REVISÃO</p><h2>QUATRO BÔNUS INCLUÍDOS</h2><span><Gift size={17}/>{content.bonuses.length} BÔNUS</span></header>
-        <div className="bonus-grid">{content.bonuses.map(bonus=><article className="bonus-card" key={bonus.title}>
+        <ScrollRail label="Quatro bônus incluídos" className="bonus-rail">{content.bonuses.map(bonus=><article className="bonus-card" key={bonus.title}>
           <div className="bonus-card-top"><p className="bonus-num">{bonus.number}</p><BonusMockup bonus={bonus}/></div>
           <div className="bonus-card-body"><h3>{bonus.title}</h3><p>{bonus.text}</p><div className="bonus-gain"><Check size={18}/><span>{bonus.gain}</span></div><div className="bonus-price"><strong>INCLUÍDO</strong></div></div>
-        </article>)}</div>
+        </article>)}</ScrollRail>
       </div></section>
 
       <section className="section offer" id="oferta"><div className="content content--720 section-flow">
