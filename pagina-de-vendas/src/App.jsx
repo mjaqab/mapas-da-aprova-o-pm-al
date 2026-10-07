@@ -12,6 +12,12 @@ const painIcons = [Layers3, BookOpen, AlertTriangle, Smartphone, FileQuestion, T
 const mechanismIcons = [SearchCheck, BookOpen, AlertTriangle, ListChecks];
 const audienceIcons = [MonitorSmartphone, Clock3, Layers3, RefreshCcw, ListChecks];
 const mainMockup = '/assets/mockups/mapas-pmal-265-mapas.webp';
+const proofMaps = [
+  '/assets/paginas/mapa-estatuto-v2.webp',
+  '/assets/paginas/mapa-rdpm.webp',
+  '/assets/paginas/mapa-alagoas-v2.webp',
+  '/assets/paginas/mapa-direitos-humanos-v2.webp'
+];
 
 function CTA({ label = 'QUERO O PACOTE COMPLETO', href = '#oferta', external = false }) {
   return <a className="btn" href={href} rel={external ? 'noopener noreferrer' : undefined}>{label}<span aria-hidden="true">→</span></a>;
@@ -19,6 +25,15 @@ function CTA({ label = 'QUERO O PACOTE COMPLETO', href = '#oferta', external = f
 
 function SectionTitle({ children, lead }) {
   return <header className="section-title"><h2>{children}</h2>{lead && <p>{lead}</p>}</header>;
+}
+
+function ProofStrip() {
+  return <div className="proof-strip" aria-label="Amostras reais e cobertura do material">
+    <div className="proof-thumbnails" aria-hidden="true">
+      {proofMaps.map((src, index) => <img src={src} alt="" key={src} loading={index ? 'lazy' : 'eager'} />)}
+    </div>
+    <p>Todo o edital de Soldado, <strong>com mais de 260 mapas, as 18 leis e 4 bônus.</strong></p>
+  </div>;
 }
 
 function ProductComposition({ compact = false, minimal = false }) {
@@ -166,6 +181,7 @@ export default function App() {
         <div className="hero-media hero-media--devices"><DeviceShowcase /></div>
         <p className="hero-sub">{content.hero.subtitle}</p>
         <CTA label="QUERO VER OS MAPAS" href="#previas" />
+        <ProofStrip />
         <ul className="hero-bullets">{content.hero.bullets.map(item => <li key={item}><Check size={20}/><span>{item}</span></li>)}</ul>
         <div className="amplitude-line"><Layers3 size={22}/><p>{content.hero.amplitude}</p></div>
       </div></section>
