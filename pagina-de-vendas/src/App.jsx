@@ -12,11 +12,12 @@ const painIcons = [Layers3, BookOpen, AlertTriangle, Smartphone, FileQuestion, T
 const mechanismIcons = [SearchCheck, BookOpen, AlertTriangle, ListChecks];
 const audienceIcons = [MonitorSmartphone, Clock3, Layers3, RefreshCcw, ListChecks];
 const mainMockup = '/assets/mockups/mapas-pmal-265-mapas.webp';
-const proofMaps = [
-  '/assets/paginas/mapa-estatuto-v2.webp',
-  '/assets/paginas/mapa-rdpm.webp',
-  '/assets/paginas/mapa-alagoas-v2.webp',
-  '/assets/paginas/mapa-direitos-humanos-v2.webp'
+const clientPhotos = [
+  '/assets/clientes/cliente-01.webp',
+  '/assets/clientes/cliente-02.webp',
+  '/assets/clientes/cliente-03.webp',
+  '/assets/clientes/cliente-04.webp',
+  '/assets/clientes/cliente-05.webp'
 ];
 
 function CTA({ label = 'QUERO O PACOTE COMPLETO', href = '#oferta', external = false }) {
@@ -28,9 +29,9 @@ function SectionTitle({ children, lead }) {
 }
 
 function ProofStrip() {
-  return <div className="proof-strip" aria-label="Amostras reais e cobertura do material">
+  return <div className="proof-strip" aria-label="Clientes e cobertura do material">
     <div className="proof-thumbnails" aria-hidden="true">
-      {proofMaps.map((src, index) => <img src={src} alt="" key={src} loading={index ? 'lazy' : 'eager'} />)}
+      {clientPhotos.map((src, index) => <img src={src} alt="" key={src} loading={index ? 'lazy' : 'eager'} />)}
     </div>
     <p>Todo o edital de Soldado, <strong>com mais de 260 mapas, as 18 leis e 4 bônus.</strong></p>
   </div>;
